@@ -10,7 +10,7 @@ URL: 		http://www.gnu.org/software/ddd/
 BuildRoot: 	%_tmppath/%name-buildroot
 License: 	GPLv2
 Requires(post): info-install
-Requires(postun): info-install
+Requires(preun): info-install
 BuildRequires: 	lesstif-devel
 BuildRequires:  flex
 BuildRequires:  readline-devel
@@ -89,8 +89,10 @@ rm -f $RPM_BUILD_ROOT/%{_libdir}/libiberty.a
 %update_menus
 %update_icon_cache hicolor
  
-%postun
+%preun
 %_remove_install_info %name.info
+
+%postun
 %clean_menus
 %clean_icon_cache hicolor
 
