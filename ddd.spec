@@ -56,7 +56,6 @@ mkdir -p $RPM_BUILD_ROOT{%_bindir,%_docdir}
 mkdir -p %{buildroot}%{_datadir}/applications
 cat > %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop <<EOF
 [Desktop Entry]
-Encoding=UTF-8
 Name=DDD
 Comment=Data Display Debugger
 Exec=ddd
