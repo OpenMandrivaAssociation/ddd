@@ -7,7 +7,6 @@ Source3:	debugger16.png
 Source4:	debugger22.png
 Group: 		Development/Other
 URL: 		http://www.gnu.org/software/ddd/
-BuildRoot: 	%_tmppath/%name-buildroot
 License: 	GPLv2
 Requires(post): info-install
 Requires(preun): info-install
