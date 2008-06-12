@@ -85,15 +85,19 @@ rm -f $RPM_BUILD_ROOT/%{_libdir}/libiberty.a
 
 %post
 %_install_info %name.info
+%if %mdkversion < 200900
 %update_menus
 %update_icon_cache hicolor
+%endif
  
 %preun
 %_remove_install_info %name.info
 
+%if %mdkversion < 200900
 %postun
 %clean_menus
 %clean_icon_cache hicolor
+%endif
 
 %clean
 rm -rf $RPM_BUILD_ROOT
