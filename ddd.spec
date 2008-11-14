@@ -1,7 +1,7 @@
 Summary: 	A GUI for several command-line debuggers
 Name:		ddd
 Version:	3.3.11
-Release: 	%mkrel 7
+Release: 	%mkrel 6
 Source0: 	http://prdownloads.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
 Source3:	debugger16.png
 Source4:	debugger22.png
@@ -43,8 +43,8 @@ interface with full editing, history and completion capabilities.
 %build
 cp -f /usr/share/libtool/config.* .
 CXXFLAGS="$RPM_OPT_FLAGS -fpermissive"
-%configure2_5x 
-%make
+%configure2_5x
+%make X_INCLUDE=""
 
 %install
 rm -rf $RPM_BUILD_ROOT
