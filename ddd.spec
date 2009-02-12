@@ -1,8 +1,8 @@
 Summary: 	A GUI for several command-line debuggers
 Name:		ddd
-Version:	3.3.11
-Release: 	%mkrel 6
-Source0: 	http://prdownloads.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
+Version:	3.3.12
+Release: 	%mkrel 1
+Source0: 	http://prdownloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
 Source3:	debugger16.png
 Source4:	debugger22.png
 Group: 		Development/Other
@@ -39,9 +39,9 @@ interface with full editing, history and completion capabilities.
 
 %prep
 %setup -q
+sed -i -e "s/^Categories=Development;$/Categories=Development;Debugger;/" ddd/ddd.desktop
 
 %build
-cp -f /usr/share/libtool/config.* .
 CXXFLAGS="$RPM_OPT_FLAGS -fpermissive"
 %configure2_5x
 %make X_INCLUDE=""
@@ -51,20 +51,6 @@ rm -rf $RPM_BUILD_ROOT
 
 mkdir -p $RPM_BUILD_ROOT{%_bindir,%_docdir}
 %makeinstall
-
-# menu
-mkdir -p %{buildroot}%{_datadir}/applications
-cat > %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop <<EOF
-[Desktop Entry]
-Name=DDD
-Comment=Data Display Debugger
-Exec=ddd
-Icon=ddd
-Terminal=false
-Type=Application
-StartupNotify=true
-Categories=Development;Debugger;
-EOF
 
 mkdir -p $RPM_BUILD_ROOT%_iconsdir/hicolor/{16x16,22x22}/apps
 install -m 644 %SOURCE3 $RPM_BUILD_ROOT%_iconsdir/hicolor/16x16/apps/ddd.png
@@ -110,7 +96,7 @@ rm -rf $RPM_BUILD_ROOT
 %_infodir/%name.*
 %_infodir/%name-*
 %dir %_datadir/%name-%version
-%_datadir/applications/mandriva-%{name}.desktop
+%_datadir/applications/%{name}.desktop
 %_datadir/%name-%version/COPYING
 %_datadir/%name-%version/NEWS
 %_datadir/%name-%version/ddd
