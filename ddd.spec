@@ -5,6 +5,7 @@ Release: 	%mkrel 1
 Source0: 	http://prdownloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
 Source3:	debugger16.png
 Source4:	debugger22.png
+Patch0:		ddd-3.3.12-gcc4.3.patch
 Group: 		Development/Other
 URL: 		http://www.gnu.org/software/ddd/
 BuildRoot: 	%_tmppath/%name-buildroot
@@ -39,6 +40,7 @@ interface with full editing, history and completion capabilities.
 
 %prep
 %setup -q
+%patch0 -p0
 sed -i -e "s/^Categories=Development;$/Categories=Development;Debugger;/" ddd/ddd.desktop
 
 %build
