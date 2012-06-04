@@ -12,7 +12,7 @@ License:	GPLv2
 BuildRequires:	lesstif-devel
 BuildRequires:	flex
 BuildRequires:	readline-devel
-BuildRequires:	libtermcap-devel
+BuildRequires:	termcap-devel
 BuildRequires:	ncurses-devel
 BuildRequires:	binutils-devel
 BuildRequires:	chrpath
