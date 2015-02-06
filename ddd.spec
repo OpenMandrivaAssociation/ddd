@@ -1,7 +1,7 @@
 Summary:	A GUI for several command-line debuggers
 Name:		ddd
 Version:	3.3.12
-Release:	3
+Release:	4
 Source0:	http://prdownloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
 Source3:	debugger16.png
 Source4:	debugger22.png
