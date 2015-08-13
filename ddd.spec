@@ -40,8 +40,10 @@ interface with full editing, history and completion capabilities.
 sed -i -e "s/^Categories=Development;$/Categories=Development;Debugger;/" ddd/ddd.desktop
 
 %build
+export CC=gcc
+export CXX=g++
 CXXFLAGS="%{optflags} -fpermissive"
-%configure2_5x
+%configure
 %make X_INCLUDE="" RPATH=""
 
 %install
