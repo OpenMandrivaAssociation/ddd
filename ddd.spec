@@ -13,7 +13,6 @@ BuildRequires:	lesstif-devel
 BuildRequires:	flex
 BuildRequires:	readline-devel
 BuildRequires:	pkgconfig(ncurses)
-BuildRequires:	termcap-devel
 BuildRequires:	binutils-devel
 BuildRequires:	chrpath
 Requires:	lesstif
