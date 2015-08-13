@@ -12,8 +12,8 @@ License:	GPLv2
 BuildRequires:	lesstif-devel
 BuildRequires:	flex
 BuildRequires:	readline-devel
+BuildRequires:	pkgconfig(ncurses)
 BuildRequires:	termcap-devel
-BuildRequires:	ncurses-devel
 BuildRequires:	binutils-devel
 BuildRequires:	chrpath
 Requires:	lesstif
@@ -43,7 +43,7 @@ sed -i -e "s/^Categories=Development;$/Categories=Development;Debugger;/" ddd/dd
 %build
 CXXFLAGS="%{optflags} -fpermissive"
 %configure2_5x
-%make X_INCLUDE=""
+%make X_INCLUDE="" RPATH=""
 
 %install
 rm -rf %{buildroot}
