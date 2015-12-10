@@ -1,7 +1,7 @@
 Summary:	A GUI for several command-line debuggers
 Name:		ddd
 Version:	3.3.12
-Release:	4
+Release:	5
 Source0:	http://prdownloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
 Source3:	debugger16.png
 Source4:	debugger22.png
@@ -9,13 +9,13 @@ Patch0:		ddd-3.3.12-gcc4.3.patch
 Group:		Development/Other
 URL:		http://www.gnu.org/software/ddd/
 License:	GPLv2
-BuildRequires:	lesstif-devel
+BuildRequires:	motif-devel
 BuildRequires:	flex
 BuildRequires:	readline-devel
 BuildRequires:	pkgconfig(ncurses)
 BuildRequires:	binutils-devel
 BuildRequires:	chrpath
-Requires:	lesstif
+Requires:	motif
 Requires:	gdb
 
 %description
