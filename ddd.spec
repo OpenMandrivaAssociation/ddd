@@ -7,7 +7,7 @@ Source3:	debugger16.png
 Source4:	debugger22.png
 Patch0:		ddd-3.3.12-gcc4.3.patch
 Group:		Development/Other
-URL:		http://www.gnu.org/software/ddd/
+URL:		https://www.gnu.org/software/ddd/
 License:	GPLv2
 BuildRequires:	motif-devel
 BuildRequires:	flex
