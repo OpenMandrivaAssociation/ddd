@@ -44,14 +44,11 @@ sed -i -e "s/^Categories=Development;$/Categories=Development;Debugger;/" ddd/dd
 
 %build
 CXXFLAGS="%{optflags} -fpermissive"
-%configure
-%make X_INCLUDE="" RPATH=""
+%configure --with-readline
+%make_build
 
 %install
-rm -rf %{buildroot}
-
-mkdir -p %{buildroot}{%{_bindir},%{_docdir}}
-%makeinstall
+%make_install
 
 mkdir -p %{buildroot}%{_iconsdir}/hicolor/{16x16,22x22}/apps
 install -m 644 %{SOURCE3} %{buildroot}%{_iconsdir}/hicolor/16x16/apps/ddd.png
