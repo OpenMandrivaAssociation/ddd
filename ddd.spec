@@ -1,11 +1,10 @@
 Summary:	A GUI for several command-line debuggers
 Name:		ddd
-Version:	3.3.12
-Release:	5
-Source0:	http://prdownloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
+Version:	3.4.1
+Release:	1
+Source0:	https://ftp.gnu.org/gnu/ddd/ddd-%{version}.tar.gz
 Source3:	debugger16.png
 Source4:	debugger22.png
-Patch0:		ddd-3.3.12-gcc4.3.patch
 Group:		Development/Other
 URL:		https://www.gnu.org/software/ddd/
 License:	GPLv2
@@ -15,7 +14,12 @@ BuildRequires:	readline-devel
 BuildRequires:	pkgconfig(ncurses)
 BuildRequires:	binutils-devel
 BuildRequires:	chrpath
+BuildRequires:	pkgconfig(xaw7)
+BuildRequires:	gdb
+BuildRequires:	info
+BuildRequires:	xterm
 Requires:	motif
+Requires:	xterm
 Requires:	gdb
 
 %description
@@ -35,13 +39,10 @@ manual, extensive help on the Motif user interface, and a command-line
 interface with full editing, history and completion capabilities.
 
 %prep
-%setup -q
-%patch0 -p0
+%autosetup -p1
 sed -i -e "s/^Categories=Development;$/Categories=Development;Debugger;/" ddd/ddd.desktop
 
 %build
-export CC=gcc
-export CXX=g++
 CXXFLAGS="%{optflags} -fpermissive"
 %configure
 %make X_INCLUDE="" RPATH=""
@@ -98,7 +99,7 @@ rm -f %{buildroot}%{_libdir}/libiberty.a
 - Use included desktop file instead of our custom one, but include
   Debugger category
 
-* Fri Nov 14 2008 GÃ¶tz Waschk <waschk@mandriva.org> 3.3.11-6mdv2009.1
+* Fri Nov 14 2008 GÃƒÂ¶tz Waschk <waschk@mandriva.org> 3.3.11-6mdv2009.1
 + Revision: 303117
 - fix build
 
@@ -132,14 +133,14 @@ rm -f %{buildroot}%{_libdir}/libiberty.a
 
 
 
-* Tue Aug 29 2006 Götz Waschk <waschk@mandriva.org> 3.3.11-3mdv2007.0
+* Tue Aug 29 2006 GÃ¶tz Waschk <waschk@mandriva.org> 3.3.11-3mdv2007.0
 - xdg menu
 
-* Wed Sep 21 2005 Götz Waschk <waschk@mandriva.org> 3.3.11-2mdk
+* Wed Sep 21 2005 GÃ¶tz Waschk <waschk@mandriva.org> 3.3.11-2mdk
 - replace prereq
 - fix C++ flags
 
-* Tue Jun 28 2005 Götz Waschk <waschk@mandriva.org> 3.3.11-1mdk
+* Tue Jun 28 2005 GÃ¶tz Waschk <waschk@mandriva.org> 3.3.11-1mdk
 - fix the source URL
 - new version
 
@@ -149,7 +150,7 @@ rm -f %{buildroot}%{_libdir}/libiberty.a
 * Wed Dec 15 2004 Lenny Cartier <lenny@mandrakesoft.com> 3.3.10-1mdk
 - 3.3.10
 
-* Wed Aug 25 2004 Götz Waschk <waschk@linux-mandrake.com> 3.3.9-2mdk
+* Wed Aug 25 2004 GÃ¶tz Waschk <waschk@linux-mandrake.com> 3.3.9-2mdk
 - fix buildrequires
 
 * Tue Aug 24 2004 Lenny Cartier <lenny@mandrakesoft.com> 3.3.9-1mdk
@@ -165,10 +166,10 @@ rm -f %{buildroot}%{_libdir}/libiberty.a
 * Mon Oct 20 2003 Lenny Cartier <lenny@mandrakesoft.com> 3.3.7-1mdk
 - 3.3.7
 
-* Fri Jun 20 2003 Götz Waschk <waschk@linux-mandrake.com> 3.3.6-2mdk
+* Fri Jun 20 2003 GÃ¶tz Waschk <waschk@linux-mandrake.com> 3.3.6-2mdk
 - fix buildrequires: readline-devel and binutils-devel (for -liberty)
 
-* Wed Jun  4 2003 Götz Waschk <waschk@linux-mandrake.com> 3.3.6-1mdk
+* Wed Jun  4 2003 GÃ¶tz Waschk <waschk@linux-mandrake.com> 3.3.6-1mdk
 - update doc file listing
 - drop pydb, seems to be missing
 - drop source 1 (merged into main tarball)
@@ -183,7 +184,7 @@ rm -f %{buildroot}%{_libdir}/libiberty.a
 * Thu Aug 15 2002 Laurent Culioli <laurent@pschit.net> 3.3.1-8mdk
 - Rebuild with gcc3.2
 
-* Wed Aug  7 2002 Götz Waschk <waschk@linux-mandrake.com> 3.3.1-7mdk
+* Wed Aug  7 2002 GÃ¶tz Waschk <waschk@linux-mandrake.com> 3.3.1-7mdk
 - gcc 3.2 build
 
 * Thu Jul 25 2002 Stew Benedict <sbenedict@mandrakesoft.com> 3.3.1-6mdk
